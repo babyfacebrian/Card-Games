@@ -15,9 +15,9 @@ public class FiveCardPokerHand implements Hand {
 
 
     public FiveCardPokerHand(final Builder builder) {
+
         this.handAnalyzer = new FiveCardHandAnalyzer(builder.cards);
     }
-
 
     public FiveCardHandAnalyzer getHandAnalyzer() {
         return this.handAnalyzer;

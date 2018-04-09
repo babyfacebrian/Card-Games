@@ -19,15 +19,8 @@ public class RankGroup implements Iterable<Map.Entry<Rank, List<Card>>> {
         this.pairCount = groupCount(2);
     }
 
-    private int groupCount(final int count) {
-        int matches = 0;
-
-        for(final Map.Entry<Rank, List<Card>> entry : this.rankMap.entrySet()){
-            if(entry.getValue().size() == count){
-                matches++;
-            }
-        }
-        return matches;
+    private int groupCount(final int groupSize) {
+        return Math.toIntExact(this.rankMap.values().stream().filter(n -> n.size() == groupSize).count());
     }
 
     private static Map<Rank, List<Card>> initRankGroup(final SortedSet<Card> cards) {

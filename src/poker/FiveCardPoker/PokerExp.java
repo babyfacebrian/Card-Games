@@ -7,7 +7,7 @@ import poker.PokerHandComparator;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class PokerMain {
+public class PokerExp {
 
     private static final int NUM_EXPERIMENTS = 10000000;
 

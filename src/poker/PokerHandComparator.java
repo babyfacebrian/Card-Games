@@ -220,7 +220,7 @@ public class PokerHandComparator implements Comparator<Hand> {
                                     final Iterator<Map.Entry<Rank, List<Card>>> otherHandIterator) {
 
         return Integer.compare(handIterator.next().getKey().getRankValue(),
-                otherHandIterator.next().getKey().getRankValue());
+                               otherHandIterator.next().getKey().getRankValue());
     }
 
     private static int compareHandClassifications(final Hand hand, final Hand otherHand) {
