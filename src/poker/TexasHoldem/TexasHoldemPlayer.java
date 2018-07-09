@@ -1,21 +1,21 @@
-package poker.FiveCardPoker;
+package poker.TexasHoldem;
 
-import CardsMaster.Card;
 import CardsMaster.Deck;
 import poker.ClassificationRank;
+import poker.FiveCardPoker.FiveCardPokerHand;
 
 import java.util.Scanner;
 
-public class PokerPlayer {
+public class TexasHoldemPlayer {
 
-    private FiveCardPokerHand.Builder builder;
-    private FiveCardPokerHand hand;
+    private TexasHoldemHand.Builder builder;
+    private TexasHoldemHand hand;
 
     private String playerName;
     private ClassificationRank handScore;
 
-    public PokerPlayer(){
-        this.builder = new FiveCardPokerHand.Builder();
+    public TexasHoldemPlayer(){
+        this.builder = new TexasHoldemHand.Builder();
 
         Scanner input = new Scanner(System.in);
         System.out.println("Enter in Player name: ");
@@ -23,16 +23,13 @@ public class PokerPlayer {
         this.playerName = name;
     }
 
-    public void setHand(Deck deck){
-        this.builder.addCard(deck.deal());
-        this.builder.addCard(deck.deal());
-        this.builder.addCard(deck.deal());
-        this.builder.addCard(deck.deal());
-        this.builder.addCard(deck.deal());
+    public void setHand(Deck deck) {
+        this.builder.addPocketCard(deck.deal());
+        this.builder.addPocketCard(deck.deal());
         this.hand = builder.build();
     }
 
-    public FiveCardPokerHand getHand(){
+    public TexasHoldemHand getHand(){
         return this.hand;
     }
 
@@ -51,9 +48,4 @@ public class PokerPlayer {
                 "Classification: " + getHandScore().toString();
 
     }
-
-
-
-
-
 }

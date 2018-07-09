@@ -3,6 +3,7 @@ package poker.FiveCardPoker;
 import CardsMaster.Deck;
 import poker.PokerHandComparator;
 
+
 public class pokerGame {
     private PokerPlayer player1;
     private PokerPlayer player2;
@@ -18,7 +19,6 @@ public class pokerGame {
         this.comparator = new PokerHandComparator();
 
     }
-
 
     public void Play(){
         this.player1.setHand(this.deck);
@@ -36,7 +36,6 @@ public class pokerGame {
 
         } else if(player1.getHandScore().getValue() == player2.getHandScore().getValue()) {
             System.out.println("Determining tie breaker...");
-
             final int compareTie = comparator.compare(player1.getHand(), player2.getHand());
 
             if(compareTie > 0){
@@ -58,16 +57,11 @@ public class pokerGame {
     }
 
 
-
     public static void main(String[] args) {
         System.out.println("Playing Five Card Poker");
 
         pokerGame game = new pokerGame();
 
         game.Play();
-
-
-
-
     }
 }

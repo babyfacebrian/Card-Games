@@ -10,17 +10,16 @@ public class Card implements Comparable<Card> {
     private final Suit suit;
     private static final Map<String, Card> CARD_MAP = initCardMap();
 
-
-    public Card(final Rank rank, final Suit suit){
+    public Card(final Rank rank, final Suit suit) {
         this.rank = rank;
         this.suit = suit;
     }
 
-    private static Map<String,Card> initCardMap() {
+    private static Map<String, Card> initCardMap() {
         final Map<String, Card> Cards = new HashMap<>();
 
-        for(final Suit suit : Suit.values()){
-            for(final Rank rank : Rank.values()){
+        for (final Suit suit : Suit.values()) {
+            for (final Rank rank : Rank.values()) {
                 Cards.put(cardKey(rank, suit), new Card(rank, suit));
             }
         }
@@ -32,14 +31,14 @@ public class Card implements Comparable<Card> {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return this.rank + " of " + this.suit;
     }
 
     public static Card getCard(final Rank rank, final Suit suit) {
-        final Card cardRetrieved =  CARD_MAP.get(cardKey(rank, suit));
+        final Card cardRetrieved = CARD_MAP.get(cardKey(rank, suit));
 
-        if(cardRetrieved != null){
+        if (cardRetrieved != null) {
             return cardRetrieved;
         }
         throw new RuntimeException("Invalid CardsMaster.Card " + rank + " " + suit);
@@ -49,18 +48,18 @@ public class Card implements Comparable<Card> {
     public int compareTo(Card other) {
         final int rankCompare = Integer.compare(this.rank.getRankValue(), other.rank.getRankValue());
 
-        if(rankCompare != 0){
+        if (rankCompare != 0) {
             return rankCompare;
         }
         return Integer.compare(this.suit.getSuitValue(), other.suit.getSuitValue());
     }
 
     @Override
-    public boolean equals(final Object object){
-        if(this == object){
+    public boolean equals(final Object object) {
+        if (this == object) {
             return true;
         }
-        if(object == null || getClass() != object.getClass()){
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
         final Card card = (Card) object;
@@ -74,25 +73,4 @@ public class Card implements Comparable<Card> {
     public Rank getRank() {
         return this.rank;
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -13,43 +13,42 @@ public class Deck {
         this.cardDeck = initDeck(shuffle);
     }
 
-    public static Deck shuffledDeck(){
+    public static Deck shuffledDeck() {
         return new Deck(true);
     }
 
-    public static Deck orderedDeck(){
+    public static Deck orderedDeck() {
         return new Deck(false);
     }
 
-    public int getDeckSize(){
+    public int getDeckSize() {
         return this.cardDeck.size();
     }
 
-    public boolean contains(final Card card){
+    public boolean contains(final Card card) {
         return this.cardDeck.contains(card);
     }
 
     private Stack<Card> initDeck(boolean shuffle) {
         final Stack<Card> cardStack = new Stack<>();
 
-        for(final Suit suit : Suit.values()){
-            for(final Rank rank : Rank.values()){
-               cardStack.push(Card.getCard(rank, suit));
-           }
+        for (final Suit suit : Suit.values()) {
+            for (final Rank rank : Rank.values()) {
+                cardStack.push(Card.getCard(rank, suit));
+            }
         }
-
-        if(shuffle){
+        if (shuffle) {
             Collections.shuffle(cardStack);
-        }else{
+        } else {
             Collections.sort(cardStack);
         }
         return cardStack;
     }
 
-    public Optional<Card> deal(){
-        if(this.cardDeck.empty()){
+    public Optional<Card> deal() {
+        if (this.cardDeck.empty()) {
             return Optional.empty();
-        }else{
+        } else {
             return Optional.of(this.cardDeck.pop());
         }
     }
@@ -57,8 +56,6 @@ public class Deck {
     public static void main(String[] args) {
         final Deck deck = Deck.shuffledDeck();
         final int numCards = 52;
-        IntStream.range(0,numCards).forEach(value -> System.out.println(deck.deal().get().toString()));
-
-
+        IntStream.range(0, numCards).forEach(value -> System.out.println(deck.deal().get().toString()));
     }
 }

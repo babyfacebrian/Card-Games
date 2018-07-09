@@ -265,7 +265,6 @@ public class PokerHandClassifier implements HandClassifier{
         }
     }
 
-
     @Override
     public Classification classify() {
         final Classification result = detectImpl();
